@@ -4,7 +4,7 @@
 
 Develop open-source engineering documentation, CAD models, and manufacturing drawings sufficient to reproduce the **pitch control (actuator) bearing** for the Beechcraft 215 Series electric controllable-pitch propeller under the FAA **owner-produced parts** provisions of 14 CFR 21.9(a)(5).
 
-This bearing (Beech P/N **B200-202**) has not been manufactured in decades. Existing units are irreplaceable through normal supply channels. Failure of this bearing can result in loss of pitch control — at minimum a grounded aircraft, potentially worse. The goal of this project is to ensure that early Bonanza operators are not forced to retire otherwise airworthy aircraft for lack of a mechanically simple part.
+This bearing (Beech P/N **B200-202**) has not been manufactured in decades. Existing units are irreplaceable through normal supply channels. The goal of this project is to ensure that early Bonanza operators are not forced to retire otherwise airworthy aircraft for lack of a mechanically simple part.
 
 ---
 
@@ -51,7 +51,7 @@ The pitch control bearing is the heart of the 215 propeller's pitch-change mecha
 - **Run-in after repack**: Rotate rapidly ~3 minutes; seal and snap ring must remain stationary
 
 ### Why It Fails
-Lack of 250-hour relubrication is the primary failure mode. Bearing destruction leads to loss of pitch change capability. Replacement bearings are no longer available through any production source.
+Lack of 250-hour relubrication is the primary failure mode. Bearing destruction leads to loss of propeller pitch change capability. Replacement bearings are no longer available through any production source.
 
 ### Hub Wear Tolerances (Figure 2-1A, Manual 115187A1)
 For context on mating hardware dimensions:
