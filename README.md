@@ -69,6 +69,81 @@ For context on mating hardware dimensions:
 
 ---
 
+## Engineering Pathway
+
+### Why Replacement Bearings Are Feasible
+
+A competent bearing manufacturer can reproduce this bearing from a sample and a drawing. The metallurgy and manufacturing processes for precision thrust bearings are well understood. SAE 52100 bearing steel — the industry standard for precision bearings — is available, documented, and routinely machined by aerospace shops. This is not exotic technology.
+
+The historical barriers have been:
+- **Minimum order quantities** — bearing houses want to run thousands, not dozens
+- **No engineering drawing** — someone has to produce one from a physical sample
+- **FAA PMA** — required only if selling commercially; not required for owner-produced parts
+- **Liability exposure** — manageable with proper documentation and the owner-produced parts pathway
+
+### The Reverse Engineering Path
+
+**Step 1: CMM Inspection**
+
+A Coordinate Measuring Machine (CMM) — or a portable equivalent like a Faro articulated arm — can capture every measurable feature of a disassembled bearing to sub-0.025mm accuracy in a few hours. What you get: a feature extraction report with raceway profiles, OD/ID, radii, contact angles, cage geometry, and lug dimensions. This is the raw dimensional dataset.
+
+For a bearing, the critical dimensions include:
+- Bore diameter and OD (toleranced to 0.005mm or better)
+- Raceway radius and contact angle (defines load path and fatigue life)
+- Internal clearance between races and rolling elements
+- Lug geometry, position, and thickness
+
+A Creality Raptor or similar consumer 3D scanner can capture envelope and gross geometry (useful for cage design and overall envelope) but cannot capture the critical toleranced dimensions. Use the scanner for what it's good at; use precision instruments or CMM for the rest.
+
+**Step 2: Engineering Drawing**
+
+The CMM report feeds a formal engineering drawing produced in SolidWorks or equivalent, with:
+- Full GD&T callouts per ASME Y14.5
+- Material specification: SAE 52100 bearing steel, hardened and ground
+- Surface finish requirements on critical race surfaces
+- Proper title block with revision control
+
+This drawing is the deliverable that everything else depends on. It's what a machine shop quotes against, what ABS would need to endorse a production run, and what a DER would want if anyone ever pursued PMA.
+
+**Step 3: Bearing Manufacturer**
+
+With a drawing in hand, the target is a precision machine shop specializing in small-lot custom bearings — not SKF or Timken direct (impractical minimum orders), but aerospace-capable shops that do custom work. Several exist in the US. The drawing is what they quote against.
+
+**Step 4: First Article Inspection**
+
+The manufacturer produces a sample. A second CMM session measures it against the drawing tolerances and against the known-good original. If it conforms, you have a reproducible part with a documented paper trail.
+
+### The Documentation Chain
+
+```
+Physical bearing sample
+    → CMM inspection report (raw measurements, traceable to NIST)
+        → Engineering drawing (GD&T, material, finish)
+            → Manufacturer quotation and production
+                → First article inspection report
+                    → Conformance to approved design established
+```
+
+This chain is what makes the installation legitimate under 14 CFR 21.9(a)(5). It is also the package that ABS would need to see before endorsing a community production run.
+
+### Cost Estimate (Order of Magnitude)
+
+| Activity | Estimated Cost |
+|----------|---------------|
+| CMM inspection | $300–600 (or a favor from a sympathetic shop) |
+| Engineering drawing | $500–1,500 (or free with a sympathetic ME) |
+| First article bearing (prototype) | $500–2,000 |
+| First article inspection | $300–600 |
+| **Total** | **~$2,000–4,000** |
+
+A retired aerospace ME in the DFW, Wichita, or Dayton area would be a natural fit for the drawing work — they have the skills, software, and often the time, and they respond well to exactly this kind of preservation project.
+
+### The ABS Parallel
+
+The American Bonanza Society successfully coordinated reproduction of magnesium v-tail elevator skins — a similar situation of an unobtainium structural part with no production source. The process took time but it got done. A CMM report, a drawing, and a first article bearing would be the natural submission package for ABS consideration.
+
+---
+
 ## Repository Structure
 
 ```
@@ -104,16 +179,30 @@ This project collects and develops the technical data needed to establish "confo
 
 ## How to Contribute
 
-This project needs:
+### Highest Priority: Dimensional Data
 
-1. **Dimensional measurements** of a serviceable B200-202 bearing (OD, ID, width, ball size, ball count, race geometry, lug dimensions and positions)
-2. **Material identification** (bearing steel grade, seal material, snap ring material/spec)
+If you own or have access to a B200-202 bearing — serviceable or worn — **measured dimensional data is the most valuable contribution you can make.** A worn bearing is useful for capturing design intent from a disassembled sample; a serviceable bearing is the validation reference.
+
+Critical dimensions needed from a disassembled bearing:
+- Outer race OD, inner race ID, overall width
+- Raceway radius and contact angle (both inner and outer)
+- Ball diameter and ball count
+- Internal clearance (radial and axial)
+- Lug dimensions: thickness, width, bore diameter, bolt hole spacing, position relative to races
+- Snap ring groove dimensions and location
+- Seal groove dimensions
+
+If you have access to a CMM or Faro arm, a full feature extraction report is ideal. If not, careful micrometer and radius gauge measurements of a disassembled bearing are a meaningful starting point.
+
+### Other Contributions Needed
+
+1. **Engineering drawing** — Someone with SolidWorks or similar and GD&T experience to convert a CMM report into a formal drawing per ASME Y14.5
+2. **Material verification** — Confirm bearing steel grade (SAE 52100 expected), seal material, snap ring spec
 3. **CAD models** — FreeCAD preferred for open-source accessibility; STEP welcome
-4. **Manufacturing drawings** per ASME Y14.5 with appropriate GD&T
-5. **Comparable modern bearings** — cross-reference to current-production bearing that meets or can be modified to meet the dimensional requirements
-6. **Legal/regulatory input** from A&Ps and DAR/DARs familiar with owner-produced parts
-
-If you own or have access to a 215 propeller, **measured dimensional data is the highest-priority contribution** right now.
+4. **Bearing manufacturer contacts** — Small-lot precision bearing shops with aerospace capability
+5. **Cross-reference search** — Any current-production bearing that meets or can be modified to meet these dimensions
+6. **A&P / DER input** — Regulatory guidance on owner-produced parts documentation and airworthiness determination
+7. **ABS contacts** — Anyone with a relationship at ABS who could help evaluate community interest in a coordinated production run
 
 ---
 
